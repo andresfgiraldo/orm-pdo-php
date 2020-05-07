@@ -36,9 +36,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             * Si no se llama algun metodo autorizado: 400 Bad Request
             */
             http_response_code(400);
-            return;   
+            return;
+            break;
     }
-}else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+} else if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     extract($_POST, EXTR_PREFIX_ALL, "v");
 
@@ -78,6 +79,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'GET') {
             * Si no se llama algun metodo autorizado: 400 Bad Request
             */
             http_response_code(400);
-            return;   
-    }    
+            return;
+            break;
+    }
 }
