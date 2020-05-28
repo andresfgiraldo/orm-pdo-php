@@ -468,7 +468,7 @@ class TABLE extends DATABASE
     protected function setAudit($insert_or_update = 1) // $insert_or_update = 1:insert | 2:update
     {
         // Obtenga el usuario conectado a la aplicacion
-        $current_user = $_SESSION['app']['user']['username'];
+        $current_user = @$_SESSION['app']['user']['username'];
 
         $current_date = date('Y-m-d H:i:s');
 
@@ -481,11 +481,11 @@ class TABLE extends DATABASE
         }
 
         if (property_exists($this, 'user_updated') && $insert_or_update == 2) {
-            @$this->user_created = $current_user;
+            @$this->user_updated = $current_user;
         }
 
         if (property_exists($this, 'updated_at') && $insert_or_update == 2) {
-            @$this->created_at = $current_date;
+            @$this->updated_at = $current_date;
         }
 
         return;
